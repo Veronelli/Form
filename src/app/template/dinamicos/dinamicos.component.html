@@ -1,0 +1,76 @@
+<h2>Template:Dinamicos</h2>
+<hr />
+<form #miFormulario="ngForm">
+  <div class="row mb-3">
+    <label for="" class="col-sm-3 col-form-label">Nombre</label>
+    <div class="col-sm-9">
+      <input
+        type="text"
+        [ngModel]="persona.nombre"
+        name="campo"
+        class="form-control"
+        placeholder="Nombre de la persona"
+        required
+      />
+      <span *ngIf="campoValido()">Campo obligatorio</span>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="" class="col-sm-3 col-form-label">Favoritos</label>
+    <div class="col-sm-9">
+      <div class="input-group">
+        <input
+          type="text"
+          class="form-control"
+          ([ngModel])="(nuevoJuego)"
+          (keyup.enter)="agregarFavorito()"
+          name="nuevoJuego"
+          placeholder="Agregar juego favorito"
+        />
+        <button
+          class="btn btn-outline-primary"
+          (click)="agregarFavorito()"
+          type="button"
+        >
+          Agregar
+        </button>
+        <span *ngIf="campoValido()">Campo obligatorio</span>
+      </div>
+    </div>
+  </div>
+  <div class="row mb-3">
+    <label for="" class="col-sm-3 col-form-label">Favoritos</label>
+    <div class="col-sm-9">
+      <div
+        class="input-group mb-1"
+        *ngFor="let item of persona.favoritos; let i = index"
+      >
+        <input
+          type="text"
+          class="form-control"
+          [(ngModel)]="item.juego"
+          [name]="'juego' + i"
+          required
+        />
+        <button
+          class="btn btn-outline-danger"
+          (click)="eliminarFavorito(i)"
+          type="button"
+        >
+          Eliminar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-9">
+      <button
+        type="button"
+        class="btn btn-primary float-end"
+        (click)="guardar()"
+      >
+        Guardar
+      </button>
+    </div>
+  </div>
+</form>
