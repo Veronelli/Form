@@ -16,7 +16,7 @@ const routes: Routes = [{
       component: DinamicosComponent
     },
     {
-      path: "swiches",
+      path: "switches",
       component: SwitchesComponent
     },
     {

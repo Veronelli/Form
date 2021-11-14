@@ -44,10 +44,11 @@ export class DinamicosComponent {
   }
 
   agregarFavorito() {
-    this.persona.favoritos.push({
+    let nuevoFavorito: Favorito = {
       juego: this.nuevoJuego,
       id: this.persona.favoritos.length + 1
-    })
+    }
+    this.persona.favoritos.push(nuevoFavorito);
 
   }
 

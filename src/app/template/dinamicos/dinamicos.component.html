@@ -22,9 +22,9 @@
         <input
           type="text"
           class="form-control"
-          ([ngModel])="(nuevoJuego)"
-          (keyup.enter)="agregarFavorito()"
+          [(ngModel)]="nuevoJuego"
           name="nuevoJuego"
+          (keyup.enter)="agregarFavorito()"
           placeholder="Agregar juego favorito"
         />
         <button
